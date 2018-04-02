@@ -1,5 +1,3 @@
-package Client;
-
 /*
 This class contains useful console tools for this project. We need tools because we want this project
 to be easy to use and the interface to be uncluttered.
@@ -7,10 +5,10 @@ to be easy to use and the interface to be uncluttered.
 
 import java.util.Scanner;
 
-public class ConsoleUtils {
+class ConsoleUtils {
 
     //adds a nice separator to different activities, doesn't clear the screen
-    public static void lineBreak() {
+    private static void lineBreak() {
 
         System.out.println("\n-----------------------------------------------------------");
         System.out.println("///////////////////////////////////////////////////////////");
@@ -20,7 +18,11 @@ public class ConsoleUtils {
 
 
     //has the user choose what they want to do
-    private static void menu() {
+    static void menu() {
+
+        if (logIn()) {
+            System.out.println();
+        }
 
         //creates objects and variables for menu system
         int selection;
@@ -28,10 +30,10 @@ public class ConsoleUtils {
 
         //outputs the menu options
         ConsoleUtils.lineBreak();
-        System.out.println("Simulated Client.Cryptocurrency Client.Wallet and Trading v0.01");
+        ConsoleUtils.title();
         System.out.println("\nChoose an option below by typing the number:");
         System.out.println("1) Browse Currencies");
-        System.out.println("2) View Client.Wallet");
+        System.out.println("2) View Wallet");
         System.out.println("3) Trading");
         System.out.println("4) Use Indicators");
         System.out.println("5) Help");
@@ -83,6 +85,10 @@ public class ConsoleUtils {
         }
 
 
+    }
+
+    private static void title() {
+        System.out.println("Virtual Cryptocurrency Wallet and Trading v0.01");
     }
 
 
@@ -143,23 +149,65 @@ public class ConsoleUtils {
         menu();
 
     }
-    //this method will help the user to browse historical and current values of cryptocurrencies using CCXT
-
-    //this will eventually have code for a loading cursor when the program is fetching info
-    public static void loadingCursor() {
-        System.out.println();
-    }
 
     //This makes the method continue when enter is pressed.
-    public static void promptEnterKey() {
+    private static void promptEnterKey() {
         Scanner keyboard = new Scanner(System.in);
         keyboard.nextLine();
     }
 
     //This method is a stub for areas under construction.
-    public static void underConstruction() {
+    private static void underConstruction() {
         System.out.println("UNDER CONSTRUCTION!");
     }
 
+    //This method is called by menu before showing the menu to make sure the user has an account (wallet)
+    //If not, they can create it here.
+    private static boolean logIn() {
 
+        title();
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("Do you have a wallet already?");
+        System.out.println("1) Yes");
+        System.out.println("2) No");
+
+        int response = keyboard.nextInt();
+
+        //Input validation
+        while (response != 1 && response != 2) {
+
+            lineBreak();
+            System.out.println("Invalid response!");
+            System.out.println("Do you have a wallet already?");
+            System.out.println("1) Yes");
+            System.out.println("2) No");
+
+            response = keyboard.nextInt();
+        }
+
+        //If they pass input validation, they will be directed to the next area.
+
+        //If they chose that they have a wallet already,
+        if (response == 1) {
+
+            lineBreak();
+            title();
+
+            System.out.print("Username: ");
+            String username = keyboard.next();
+            System.out.println("Password: ");
+            String password = keyboard.next();
+
+            //TODO Jon - Finish login code
+            //Check if the username and password serialized file exists
+            //If so, make it an object and read it to see if the entered username and pass exist.
+            //If not, create it, then open it to see if username and pass exist. (Which will fail of course, the user should
+            //have chosen option 2).
+
+
+        }
+
+        return true;
+
+    }
 }

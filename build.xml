@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="crypto_wallet_and_trading_(virtual)" default="all">
+  
+  
+  <property file="build.properties"/>
+  <!-- Uncomment the following property if no tests compilation is needed -->
+  <!-- 
+  <property name="skip.tests" value="true"/>
+   -->
+  
+  <!-- Compiler options -->
+  
+  <property name="compiler.debug" value="on"/>
+  <property name="compiler.generate.no.warnings" value="off"/>
+  <property name="compiler.args" value=""/>
+  <property name="compiler.max.memory" value="700m"/>
+  <patternset id="ignored.files">
+    <exclude name="**/*.hprof/**"/>
+    <exclude name="**/*.pyc/**"/>
+    <exclude name="**/*.pyo/**"/>
+    <exclude name="**/*.rbc/**"/>
+    <exclude name="**/*.yarb/**"/>
+    <exclude name="**/*~/**"/>
+    <exclude name="**/.DS_Store/**"/>
+    <exclude name="**/.git/**"/>
+    <exclude name="**/.hg/**"/>
+    <exclude name="**/.svn/**"/>
+    <exclude name="**/CVS/**"/>
+    <exclude name="**/__pycache__/**"/>
+    <exclude name="**/_svn/**"/>
+    <exclude name="**/vssver.scc/**"/>
+    <exclude name="**/vssver2.scc/**"/>
+  </patternset>
+  <patternset id="library.patterns">
+    <include name="*.war"/>
+    <include name="*.swc"/>
+    <include name="*.zip"/>
+    <include name="*.egg"/>
+    <include name="*.ane"/>
+    <include name="*.jar"/>
+    <include name="*.ear"/>
+  </patternset>
+  <patternset id="compiler.resources">
+    <exclude name="**/?*.java"/>
+    <exclude name="**/?*.form"/>
+    <exclude name="**/?*.class"/>
+    <exclude name="**/?*.groovy"/>
+    <exclude name="**/?*.scala"/>
+    <exclude name="**/?*.flex"/>
+    <exclude name="**/?*.kt"/>
+    <exclude name="**/?*.clj"/>
+    <exclude name="**/?*.aj"/>
+  </patternset>
+  
+  <!-- JDK definitions -->
+  
+  <property name="jdk.bin.9.0" value="${jdk.home.9.0}/bin"/>
+  <path id="jdk.classpath.9.0">
+    <fileset dir="${jdk.home.9.0}">
+      <include name="../jdk-9.0.4!/java.activation"/>
+      <include name="../jdk-9.0.4!/java.base"/>
+      <include name="../jdk-9.0.4!/java.compiler"/>
+      <include name="../jdk-9.0.4!/java.corba"/>
+      <include name="../jdk-9.0.4!/java.datatransfer"/>
+      <include name="../jdk-9.0.4!/java.desktop"/>
+      <include name="../jdk-9.0.4!/java.instrument"/>
+      <include name="../jdk-9.0.4!/java.jnlp"/>
+      <include name="../jdk-9.0.4!/java.logging"/>
+      <include name="../jdk-9.0.4!/java.management"/>
+      <include name="../jdk-9.0.4!/java.management.rmi"/>
+      <include name="../jdk-9.0.4!/java.naming"/>
+      <include name="../jdk-9.0.4!/java.prefs"/>
+      <include name="../jdk-9.0.4!/java.rmi"/>
+      <include name="../jdk-9.0.4!/java.scripting"/>
+      <include name="../jdk-9.0.4!/java.se"/>
+      <include name="../jdk-9.0.4!/java.se.ee"/>
+      <include name="../jdk-9.0.4!/java.security.jgss"/>
+      <include name="../jdk-9.0.4!/java.security.sasl"/>
+      <include name="../jdk-9.0.4!/java.smartcardio"/>
+      <include name="../jdk-9.0.4!/java.sql"/>
+      <include name="../jdk-9.0.4!/java.sql.rowset"/>
+      <include name="../jdk-9.0.4!/java.transaction"/>
+      <include name="../jdk-9.0.4!/java.xml"/>
+      <include name="../jdk-9.0.4!/java.xml.bind"/>
+      <include name="../jdk-9.0.4!/java.xml.crypto"/>
+      <include name="../jdk-9.0.4!/java.xml.ws"/>
+      <include name="../jdk-9.0.4!/java.xml.ws.annotation"/>
+      <include name="../jdk-9.0.4!/javafx.base"/>
+      <include name="../jdk-9.0.4!/javafx.controls"/>
+      <include name="../jdk-9.0.4!/javafx.deploy"/>
+      <include name="../jdk-9.0.4!/javafx.fxml"/>
+      <include name="../jdk-9.0.4!/javafx.graphics"/>
+      <include name="../jdk-9.0.4!/javafx.media"/>
+      <include name="../jdk-9.0.4!/javafx.swing"/>
+      <include name="../jdk-9.0.4!/javafx.web"/>
+      <include name="../jdk-9.0.4!/jdk.accessibility"/>
+      <include name="../jdk-9.0.4!/jdk.attach"/>
+      <include name="../jdk-9.0.4!/jdk.charsets"/>
+      <include name="../jdk-9.0.4!/jdk.compiler"/>
+      <include name="../jdk-9.0.4!/jdk.crypto.cryptoki"/>
+      <include name="../jdk-9.0.4!/jdk.crypto.ec"/>
+      <include name="../jdk-9.0.4!/jdk.crypto.mscapi"/>
+      <include name="../jdk-9.0.4!/jdk.deploy"/>
+      <include name="../jdk-9.0.4!/jdk.deploy.controlpanel"/>
+      <include name="../jdk-9.0.4!/jdk.dynalink"/>
+      <include name="../jdk-9.0.4!/jdk.editpad"/>
+      <include name="../jdk-9.0.4!/jdk.hotspot.agent"/>
+      <include name="../jdk-9.0.4!/jdk.httpserver"/>
+      <include name="../jdk-9.0.4!/jdk.incubator.httpclient"/>
+      <include name="../jdk-9.0.4!/jdk.internal.ed"/>
+      <include name="../jdk-9.0.4!/jdk.internal.jvmstat"/>
+      <include name="../jdk-9.0.4!/jdk.internal.le"/>
+      <include name="../jdk-9.0.4!/jdk.internal.opt"/>
+      <include name="../jdk-9.0.4!/jdk.internal.vm.ci"/>
+      <include name="../jdk-9.0.4!/jdk.jartool"/>
+      <include name="../jdk-9.0.4!/jdk.javadoc"/>
+      <include name="../jdk-9.0.4!/jdk.javaws"/>
+      <include name="../jdk-9.0.4!/jdk.jcmd"/>
+      <include name="../jdk-9.0.4!/jdk.jconsole"/>
+      <include name="../jdk-9.0.4!/jdk.jdeps"/>
+      <include name="../jdk-9.0.4!/jdk.jdi"/>
+      <include name="../jdk-9.0.4!/jdk.jdwp.agent"/>
+      <include name="../jdk-9.0.4!/jdk.jfr"/>
+      <include name="../jdk-9.0.4!/jdk.jlink"/>
+      <include name="../jdk-9.0.4!/jdk.jshell"/>
+      <include name="../jdk-9.0.4!/jdk.jsobject"/>
+      <include name="../jdk-9.0.4!/jdk.jstatd"/>
+      <include name="../jdk-9.0.4!/jdk.localedata"/>
+      <include name="../jdk-9.0.4!/jdk.management"/>
+      <include name="../jdk-9.0.4!/jdk.management.agent"/>
+      <include name="../jdk-9.0.4!/jdk.management.cmm"/>
+      <include name="../jdk-9.0.4!/jdk.management.jfr"/>
+      <include name="../jdk-9.0.4!/jdk.management.resource"/>
+      <include name="../jdk-9.0.4!/jdk.naming.dns"/>
+      <include name="../jdk-9.0.4!/jdk.naming.rmi"/>
+      <include name="../jdk-9.0.4!/jdk.net"/>
+      <include name="../jdk-9.0.4!/jdk.pack"/>
+      <include name="../jdk-9.0.4!/jdk.packager"/>
+      <include name="../jdk-9.0.4!/jdk.packager.services"/>
+      <include name="../jdk-9.0.4!/jdk.plugin"/>
+      <include name="../jdk-9.0.4!/jdk.plugin.dom"/>
+      <include name="../jdk-9.0.4!/jdk.plugin.server"/>
+      <include name="../jdk-9.0.4!/jdk.policytool"/>
+      <include name="../jdk-9.0.4!/jdk.rmic"/>
+      <include name="../jdk-9.0.4!/jdk.scripting.nashorn"/>
+      <include name="../jdk-9.0.4!/jdk.scripting.nashorn.shell"/>
+      <include name="../jdk-9.0.4!/jdk.sctp"/>
+      <include name="../jdk-9.0.4!/jdk.security.auth"/>
+      <include name="../jdk-9.0.4!/jdk.security.jgss"/>
+      <include name="../jdk-9.0.4!/jdk.snmp"/>
+      <include name="../jdk-9.0.4!/jdk.unsupported"/>
+      <include name="../jdk-9.0.4!/jdk.xml.bind"/>
+      <include name="../jdk-9.0.4!/jdk.xml.dom"/>
+      <include name="../jdk-9.0.4!/jdk.xml.ws"/>
+      <include name="../jdk-9.0.4!/jdk.zipfs"/>
+      <include name="../jdk-9.0.4!/oracle.desktop"/>
+      <include name="../jdk-9.0.4!/oracle.net"/>
+    </fileset>
+  </path>
+  
+  <property name="project.jdk.home" value="${jdk.home.9.0}"/>
+  <property name="project.jdk.bin" value="${jdk.bin.9.0}"/>
+  <property name="project.jdk.classpath" value="jdk.classpath.9.0"/>
+  <!-- Register Custom Compiler Taskdefs -->
+  <property name="javac2.home" value="${idea.home}/lib"/>
+  <path id="javac2.classpath">
+    <fileset dir="${javac2.home}">
+      <include name="javac2.jar"/>
+      <include name="jdom.jar"/>
+      <include name="asm-all*.jar"/>
+      <include name="jgoodies-forms.jar"/>
+    </fileset>
+  </path>
+  <target name="register.custom.compilers">
+    <taskdef name="javac2" classname="com.intellij.ant.Javac2" classpathref="javac2.classpath"/>
+    <taskdef name="instrumentIdeaExtensions" classname="com.intellij.ant.InstrumentIdeaExtensions" classpathref="javac2.classpath"/>
+  </target>
+  
+  <!-- Modules -->
+  
+  
+  <!-- Module CryptoProject -->
+  
+  <dirname property="module.cryptoproject.basedir" file="${ant.file}"/>
+  
+  
+  <property name="module.jdk.home.cryptoproject" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.cryptoproject" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.cryptoproject" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.cryptoproject" value="-encoding UTF-8 -source 9 -target 9 ${compiler.args}"/>
+  
+  <property name="cryptoproject.output.dir" value="${module.cryptoproject.basedir}/CryptoProject/target/classes"/>
+  <property name="cryptoproject.testoutput.dir" value="${module.cryptoproject.basedir}/CryptoProject/target/test-classes"/>
+  
+  <path id="cryptoproject.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="cryptoproject.module.production.classpath">
+    <path refid="${module.jdk.classpath.cryptoproject}"/>
+  </path>
+  
+  <path id="cryptoproject.runtime.production.module.classpath">
+    <pathelement location="${cryptoproject.output.dir}"/>
+  </path>
+  
+  <path id="cryptoproject.module.classpath">
+    <path refid="${module.jdk.classpath.cryptoproject}"/>
+    <pathelement location="${cryptoproject.output.dir}"/>
+  </path>
+  
+  <path id="cryptoproject.runtime.module.classpath">
+    <pathelement location="${cryptoproject.testoutput.dir}"/>
+    <pathelement location="${cryptoproject.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.cryptoproject">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.cryptoproject">
+    <patternset refid="excluded.from.module.cryptoproject"/>
+  </patternset>
+  
+  <path id="cryptoproject.module.sourcepath">
+    <dirset dir="${module.cryptoproject.basedir}/CryptoProject">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.cryptoproject" depends="compile.module.cryptoproject.production,compile.module.cryptoproject.tests" description="Compile module CryptoProject"/>
+  
+  <target name="compile.module.cryptoproject.production" depends="register.custom.compilers" description="Compile module CryptoProject; production classes">
+    <mkdir dir="${cryptoproject.output.dir}"/>
+    <javac2 destdir="${cryptoproject.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.cryptoproject}/javac">
+      <compilerarg line="${compiler.args.cryptoproject}"/>
+      <bootclasspath refid="cryptoproject.module.bootclasspath"/>
+      <classpath refid="cryptoproject.module.production.classpath"/>
+      <src refid="cryptoproject.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.cryptoproject"/>
+    </javac2>
+    
+    <copy todir="${cryptoproject.output.dir}">
+      <fileset dir="${module.cryptoproject.basedir}/CryptoProject/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.cryptoproject.tests" depends="register.custom.compilers,compile.module.cryptoproject.production" description="compile module CryptoProject; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.cryptoproject" description="cleanup module">
+    <delete dir="${cryptoproject.output.dir}"/>
+    <delete dir="${cryptoproject.testoutput.dir}"/>
+  </target>
+  
+  <target name="init" description="Build initialization">
+    <!-- Perform any build initialization in this target -->
+  </target>
+  
+  <target name="clean" depends="clean.module.cryptoproject" description="cleanup all"/>
+  
+  <target name="build.modules" depends="init, clean, compile.module.cryptoproject" description="build all modules"/>
+  
+  <target name="init.artifacts">
+    <property name="artifacts.temp.dir" value="${basedir}/__artifacts_temp"/>
+    <property name="artifact.output.cryptoproject:jar" value="${basedir}/out/artifacts/CryptoProject_jar"/>
+    <mkdir dir="${artifacts.temp.dir}"/>
+    <property name="temp.jar.path.CryptoProject.jar" value="${artifacts.temp.dir}/CryptoProject.jar"/>
+  </target>
+  
+  <target name="artifact.cryptoproject:jar" depends="init.artifacts, compile.module.cryptoproject" description="Build &#39;CryptoProject:jar&#39; artifact">
+    <property name="artifact.temp.output.cryptoproject:jar" value="${artifacts.temp.dir}/CryptoProject_jar"/>
+    <mkdir dir="${artifact.temp.output.cryptoproject:jar}"/>
+    <jar destfile="${temp.jar.path.CryptoProject.jar}" duplicate="preserve" filesetmanifest="mergewithoutmain">
+      <zipfileset dir="${cryptoproject.output.dir}"/>
+      <zipfileset src="${path.variable.maven_repository}/org/knowm/xchange/xchange-core/4.2.0/xchange-core-4.2.0.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/org/slf4j/slf4j-api/1.7.21/slf4j-api-1.7.21.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/com/github/mmazi/rescu/1.9.0/rescu-1.9.0.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/com/fasterxml/jackson/core/jackson-databind/2.8.2/jackson-databind-2.8.2.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/com/fasterxml/jackson/core/jackson-annotations/2.8.0/jackson-annotations-2.8.0.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/com/fasterxml/jackson/core/jackson-core/2.8.2/jackson-core-2.8.2.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/javax/ws/rs/jsr311-api/1.1.1/jsr311-api-1.1.1.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/com/google/code/findbugs/jsr305/3.0.1/jsr305-3.0.1.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/net/iharder/base64/2.3.9/base64-2.3.9.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/oauth/signpost/signpost-core/1.2.1.2/signpost-core-1.2.1.2.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/commons-codec/commons-codec/1.3/commons-codec-1.3.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/commons-io/commons-io/2.5/commons-io-2.5.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/org/knowm/xchange/xchange-coinbase/4.3.4/xchange-coinbase-4.3.4.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/org/knowm/xchange/xchange-core/4.3.4/xchange-core-4.3.4.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/com/github/mmazi/rescu/2.0.1/rescu-2.0.1.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/com/fasterxml/jackson/core/jackson-databind/2.9.1/jackson-databind-2.9.1.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/com/fasterxml/jackson/core/jackson-annotations/2.9.0/jackson-annotations-2.9.0.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/com/fasterxml/jackson/core/jackson-core/2.9.1/jackson-core-2.9.1.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/javax/ws/rs/javax.ws.rs-api/2.1/javax.ws.rs-api-2.1.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/commons-io/commons-io/2.6/commons-io-2.6.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/com/google/code/gson/gson/2.8.2/gson-2.8.2.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/com/squareup/retrofit2/retrofit/2.4.0/retrofit-2.4.0.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/com/squareup/okhttp3/okhttp/3.10.0/okhttp-3.10.0.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/com/squareup/okio/okio/1.14.0/okio-1.14.0.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/com/squareup/retrofit2/converter-gson/2.3.0/converter-gson-2.3.0.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/com/squareup/retrofit2/retrofit/2.3.0/retrofit-2.3.0.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/com/squareup/okhttp3/okhttp/3.8.0/okhttp-3.8.0.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/com/squareup/okio/okio/1.13.0/okio-1.13.0.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/com/google/code/gson/gson/2.7/gson-2.7.jar"/>
+    </jar>
+    <copy file="${temp.jar.path.CryptoProject.jar}" tofile="${artifact.temp.output.cryptoproject:jar}/CryptoProject.jar"/>
+  </target>
+  
+  <target name="build.all.artifacts" depends="artifact.cryptoproject:jar" description="Build all artifacts">
+    <mkdir dir="${artifact.output.cryptoproject:jar}"/>
+    <copy todir="${artifact.output.cryptoproject:jar}">
+      <fileset dir="${artifact.temp.output.cryptoproject:jar}"/>
+    </copy>
+    
+    <!-- Delete temporary files -->
+    <delete dir="${artifacts.temp.dir}"/>
+  </target>
+  
+  <target name="all" depends="build.modules, build.all.artifacts" description="build all"/>
+</project>
