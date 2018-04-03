@@ -1,0 +1,3 @@
+# VirtualCryptoTrading
+#### A java application that simulates trading with a wallet and live cryptocurrency data.
+#### Cryptocurrencies that will be available for this virtual trade are BitCoin, Ehtereum, and LiteCoin. A user can create their own "wallet" by providing their name and a username.  Their information will be encrypted Also this wallet will hold an account in USD of their available funds. An added feature has been implementated that allows the user to set financial target or goals for their portofolio.  They will also be able to view all their trades and be informed of their aggregate holdings in their portfolio.
