@@ -1,5 +1,5 @@
 # VirtualCryptoTrading
-####A java application that simulates trading with a wallet and live cryptocurrency data.
+#### A java application that simulates trading with a wallet and live cryptocurrency data.
 
 Any cryptocurrencies can be used with this project. A user will be able to create their own wallet by providing their name and choosing a username, as well as some other basic information. Their wallet will hold an account in USD that essentially provides the funding to which they can make their trades. 
 
