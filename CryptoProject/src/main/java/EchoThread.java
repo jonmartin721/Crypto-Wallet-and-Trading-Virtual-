@@ -49,6 +49,7 @@ public class EchoThread extends Thread {
             socket.close();
 
         } catch (Exception e) {
+            //System.out.println("");
             System.err.println("Error: " + e.getMessage());
             e.printStackTrace(System.err);
         }

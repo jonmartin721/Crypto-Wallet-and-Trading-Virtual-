@@ -264,8 +264,9 @@ class MenuTools {
                     }
 
                     System.out.println("Exiting program...");
-                    System.exit(0);
-                    break;
+                    EchoClient.exitProgramAndServer();
+//                    System.exit(0);
+//                    break;
 
                 default:
                     System.out.println("\nEnter a valid choice!");
@@ -485,7 +486,7 @@ class MenuTools {
                 System.out.println("\nExiting program...");
                 //System.exit(0);
                 EchoClient.exitProgramAndServer();
-                break;
+                //break;
 
         }
 
@@ -691,6 +692,10 @@ class MenuTools {
     // Used for wallet data viewing
     static void lineDivider() {
         System.out.println("=====================================================");
+    }
+
+    static void longerLineDivider(){
+        System.out.println("==================================================================================================");
     }
 
     // Handles query processing for the browsing and trading area

@@ -1,9 +1,9 @@
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.net.Socket;
 import java.nio.file.FileSystem;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+
 
 // Simple client class. This class connects to an EchoServer to send text back and forth.
 // Java message serialization is used to pass Message objects around.
@@ -12,23 +12,39 @@ public class EchoClient {
 
     private static FileSystem sock;
 
+
     public static void main(String[] args) {
         try {
             String serverName;
 
-            //Prompt the user to enter the Server to connect to
-            System.out.print("Enter Server name or IP: ");
+            //Prompting the user to enter the Server to connect to
+            System.out.println("\nYou must run \"EchoServer\" first and then \"EchoClient\" to successfully start this program.");
+            System.out.println("If you don't, the system will not work properly and you will not be able to launch the program.");
+            MenuTools.longerLineDivider();
+            System.out.print("\nEnter \"localhost\" if server is on local machine");
+            System.out.println(" or IP address of the server if you know it: ");
             //TODO add message about using localhost if the server is running on the same machine
             System.out.print(" > ");
 
-            //Read user input for the server name or IP address 
+            //Read user input for the server name or IP address
             BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
             serverName = in.readLine();
 
+            // input validation loop for connecting client to server
+            while(!serverName.toLowerCase().equals("localhost")){
+                System.out.print("\nRe-enter \"localhost\" if server is on local machine");
+                System.out.println(" or IP address of the server if you know it: ");
+                System.out.print(" > ");
+
+                serverName = in.readLine();
+            };
+
             // Connect to the specified server
             final Socket sock = new Socket(serverName, EchoServer.SERVER_PORT);
+            System.out.println();
             System.out.println("Connected to " + serverName + " on port " + EchoServer.SERVER_PORT);
-            MenuTools.lineDivider();
+            System.out.println();
+            MenuTools.longerLineDivider();
 
             // Set up I/O streams with the server
             final ObjectOutputStream output = new ObjectOutputStream(sock.getOutputStream());
@@ -73,19 +89,17 @@ public class EchoClient {
     } //-- end readSomeText2()
 
 
-    static void exitProgramAndServer() {
+    static void exitProgramAndServer(){
         try {
-            System.out.println("Type \"EXIT\" to quit this program and server.");
-            System.out.print(" > ");
-            //Read user input for the server name or IP address
-            //TODO Is this never used?
-            BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-            //serverName = in.readLine();
+            // **I'm still working on this part**(Amee)
+            System.exit(0);
             sock.close();
-
-        } catch (Exception e) {
-            System.out.println();
-            //System.out.println("Uh, uh, oh...");
         }
+         catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Uh, uh, oh...");
+        }
+
     }
+
 } //-- end class EchoClient
